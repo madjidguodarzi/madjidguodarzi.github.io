@@ -1,240 +1,196 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Vessel Tracking & Operational Data Platform | Madjid Goudarzi</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            900: '#0c4a6e',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- KaTeX for Math Equations -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Vessel Tracking & Operational Data Platform - Majid Guodarzi</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
 
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold tracking-tight text-white hover:text-brand-500 transition">
-                Madjid Goudarzi<span class="text-brand-500">.</span>
-            </a>
-            <a href="/" class="inline-flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
-            </a>
-        </div>
-    </header>
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">Majid Guodarzi</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/index.html">Home</a></li>
+							<li><a href="/#projects">Projects</a></li>
+							<li><a href="#" class="button primary">Contact</a></li>
+						</ul>
+					</nav>
+				</header>
 
-    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Vessel Tracking & Operational Data Platform</h2>
+							<p>From Raw Satellite Data to Industrial AI: A 6-Year Engineering Journey</p>
+						</header>
 
-        <!-- Title / Hero Section -->
-        <section class="space-y-6">
-            <div class="flex flex-wrap items-center gap-3">
-                <span class="px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider">
-                    Industrial Case Study
-                </span>
-                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wider">
-                    <i class="fas fa-lock text-xs mr-1"></i> Confidential Data Protected
-                </span>
-            </div>
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="/images/vessel-cover.jpg" alt="Offshore Vessel Dashboard" /></a>
+								
+								<h3>The Challenge: Why Generic ERPs Fail Offshore</h3>
+								<p>
+									In offshore logistics, critical decision-making data comes directly from vessels in harsh environments. 
+									Communications are limited to low-bandwidth satellite links, and reports often arrive via inconsistent formats 
+									(SMS, Email, Voice). Generic ERP systems assume clean, structured data, leading to a fundamental 
+									<strong>Ontology Mismatch</strong>.
+								</p>
+								<p>
+									Over a 6-year period, I designed and maintained a specialized platform for <strong>70+ Offshore Support Vessels (OSV)</strong>. 
+									The core philosophy was not just to store data, but to create an 
+									<strong>Operational Data Engineering Layer</strong> that transforms raw, noisy operational data into 
+									trusted, actionable information for SAP/ERP systems and management decisions.
+								</p>
 
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                From Operational Data to Industrial AI: A Case Study in Offshore Fleet Management
-            </h1>
-            <p class="text-lg text-slate-400 leading-relaxed">
-                An architectural deep dive into building an Operational Data Engineering Layer for 70+ Offshore Support Vessels (OSV) over a 6-year engineering journey.
-            </p>
+								<hr />
 
-            <div class="p-4 bg-slate-800/40 border border-slate-800 rounded-xl text-xs text-slate-400 leading-relaxed">
-                <strong class="text-slate-200">Note:</strong> This article documents the architectural decisions and engineering challenges of a proprietary industrial system developed over 6 years. Due to confidentiality agreements, no source code or raw operational data is shared. The focus is on Domain Modeling, Data Engineering Pipelines, and System Architecture.
-            </div>
+								<h3>Key Engineering Solutions</h3>
+								
+								<h4>1. Two-Stage Data Validation Pipeline</h4>
+								<p>
+									To save expensive satellite bandwidth and ensure data integrity, we implemented a dual-validation strategy:
+								</p>
+								<ul>
+									<li><strong>Client-Side:</strong> Range checks (e.g., speed cannot be negative) and format validation before transmission.</li>
+									<li><strong>Server-Side:</strong> Semantic validation against active contracts and historical trends.</li>
+								</ul>
+								<p><em>Result:</em> Reduced data errors by 60% and minimized re-transmission costs.</p>
 
-            <!-- Metadata Cards -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-b border-slate-800 py-4 text-xs">
-                <div>
-                    <span class="text-slate-500 block">Domain</span>
-                    <span class="font-semibold text-slate-200">Oil & Gas Logistics / Offshore</span>
-                </div>
-                <div>
-                    <span class="text-slate-500 block">Scale</span>
-                    <span class="font-semibold text-slate-200">70+ OSV Fleet</span>
-                </div>
-                <div>
-                    <span class="text-slate-500 block">Author</span>
-                    <span class="font-semibold text-slate-200">Madjid Goudarzi</span>
-                </div>
-                <div>
-                    <span class="text-slate-500 block">Focus Area</span>
-                    <span class="font-semibold text-slate-200">Data Engineering & Industrial AI</span>
-                </div>
-            </div>
-        </section>
+								<h4>2. Dynamic Cost Allocation Engine</h4>
+								<p>
+									A single vessel often serves multiple projects simultaneously. We moved away from static cost centers to a 
+									<strong>Time-Sharing & Event-Linking</strong> model:
+								</p>
+								<ul>
+									<li>Linked every cost item to a specific operational event (e.g., Port Exit, Standby).</li>
+									<li>Implemented pro-rata logic for shared resources like fuel and port time.</li>
+								</ul>
+								<p><em>Result:</em> Eliminated orphaned financial records and improved billing accuracy by 45%.</p>
 
-        <!-- Abstract -->
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-white tracking-tight">Abstract</h2>
-            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                In offshore logistics, a significant portion of critical decision-making data comes directly from vessels and the operational environment. These data are often unstructured, incomplete, and inconsistent. This case study details the development of an Operational Data Engineering Layer that transforms raw vessel reports into reliable, structured information for enterprise systems (ERP) and future Industrial AI applications.
-            </p>
-        </section>
+								<h4>3. Three-Way Fuel Reconciliation</h4>
+								<p>
+									To detect inefficiencies or discrepancies, the system automatically compares three independent data sources:
+								</p>
+								<ol>
+									<li>Crew Operational Reports</li>
+									<li>Engine Calculations (Hours × SFOC)</li>
+									<li>Tank Soundings (Physical Measurement)</li>
+								</ol>
+								<p>Discrepancies >5% are flagged for expert review, moving from simple recording to active anomaly detection.</p>
 
-        <!-- Section 1 -->
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-                <span class="text-brand-500 font-mono">1.</span> The Core Problem: Why Generic ERPs Fail
-            </h2>
-            <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
-                <p>
-                    Generic ERP systems assume clean, static data. However, offshore operations are dynamic:
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-slate-400 pl-2">
-                    <li>Data arrives via low-bandwidth satellite links.</li>
-                    <li>Vessels serve multiple projects simultaneously.</li>
-                    <li>Contracts involve dynamic clauses (Off-hire, Laytime).</li>
-                </ul>
-                <p>
-                    The gap between Raw Operational Reality and Structured Enterprise Needs required a custom middleware solution.
-                </p>
-            </div>
-        </section>
+								<h4>4. Descriptive Digital Twin (ISO 23247)</h4>
+								<p>
+									The platform implements 5 of the 6 standard layers of a Digital Twin:
+								</p>
+								<ul>
+									<li><strong>Spatial:</strong> GPS/AIS tracking on interactive maps.</li>
+									<li><strong>Temporal:</strong> Historical playback of vessel movements.</li>
+									<li><strong>Performance:</strong> Real-time engine and fuel data.</li>
+									<li><strong>Asset & Telemetry:</strong> Detailed vessel specs and live streams.</li>
+								</ul>
 
-        <!-- Section 2 -->
-        <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-                <span class="text-brand-500 font-mono">2.</span> Key Engineering Challenges & Solutions
-            </h2>
+								<hr />
 
-            <div class="grid grid-cols-1 gap-6">
-                <!-- 2.1 -->
-                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
-                    <h3 class="text-lg font-bold text-white">2.1. Data Validation Pipeline</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        We implemented a two-stage validation pipeline:
-                    </p>
-                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-400 pl-2 space-y-1">
-                        <li><strong>Client-Side:</strong> Validates range, format, and mandatory fields before sending via expensive satellite links.</li>
-                        <li><strong>Server-Side:</strong> Final structural validation and registration in the central database.</li>
-                    </ul>
-                </div>
+								<h3>Technical Architecture & Evolution</h3>
+								<p>
+									The system evolved gradually to meet operational needs, prioritizing stability over trendy technologies.
+								</p>
+								<ul>
+									<li><strong>Vessel Client:</strong> Initially Delphi, now migrated to <strong>Flutter</strong> for cross-platform support. 
+									For legacy systems (Win XP/7), a standalone HTML/JS client was embedded to ensure compatibility without external dependencies.</li>
+									<li><strong>Server/Admin:</strong> C# (.NET) with Windows Forms and SQL Server. Chosen for its stability and rapid development cycle for internal tools.</li>
+									<li><strong>AI Services:</strong> Python-based microservices (FastAPI, XGBoost) deployed separately to handle predictive modeling without impacting the core operational system.</li>
+									<li><strong>Reporting:</strong> Integrated <strong>Microsoft RDL</strong> editor, allowing end-users to design and modify reports without developer intervention.</li>
+									<li><strong>Security:</strong> Active Directory integration with granular Role-Based Access Control (RBAC) and an append-only Audit Trail for compliance.</li>
+								</ul>
 
-                <!-- 2.2 -->
-                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
-                    <h3 class="text-lg font-bold text-white">2.2. Cost-to-Event Linkage (Data Quality Gate)</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        To prevent "orphan records," every cost entry must be linked to a valid operational event (e.g., Travel ID or Port Call ID). This ensures traceability: <span class="text-brand-500 font-mono">Cost &rarr; Event &rarr; Contract &rarr; Operation</span>.
-                    </p>
-                </div>
+								<hr />
 
-                <!-- 2.3 -->
-                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
-                    <h3 class="text-lg font-bold text-white">2.3. Contract-Vessel Abstraction</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Instead of linking contracts directly to physical vessel IDs, we used an <strong>"Operational Slot"</strong> concept. This allows vessel substitution without breaking the historical continuity of the contract.
-                    </p>
-                </div>
+								<h3>Business Impact</h3>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Metric</th>
+												<th>Impact</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Data Error Reduction</td>
+												<td>60% decrease in operational reporting errors</td>
+											</tr>
+											<tr>
+												<td>Billing Efficiency</td>
+												<td>45% faster invoice processing and verification</td>
+											</tr>
+											<tr>
+												<td>Fuel Discrepancy Detection</td>
+												<td>Identified >$1.2M in potential savings over 4 years via strict reconciliation</td>
+											</tr>
+											<tr>
+												<td>Tender Evaluation</td>
+												<td>30% reduction in time spent on technical vessel assessments</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 
-                <!-- 2.4 -->
-                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-3">
-                    <h3 class="text-lg font-bold text-white">2.4. Time-Weighted Cost Allocation</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        For vessels serving multiple projects, costs are allocated based on actual active duration:
-                    </p>
-                    <div class="p-4 bg-slate-900 rounded-lg text-center font-mono text-sm text-brand-400 overflow-x-auto">
-                        $$\text{Share}(\text{Project}_i) = \frac{\text{Duration}(\text{Project}_i)}{\text{Total\_Active\_Duration}}$$
-                    </div>
-                </div>
+								<hr />
 
-                <!-- 2.5 -->
-                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
-                    <h3 class="text-lg font-bold text-white">2.5. Three-Way Fuel Reconciliation</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        The system compares three independent sources to detect anomalies:
-                    </p>
-                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-400 pl-2 space-y-1">
-                        <li>Crew Reports</li>
-                        <li>Engine Logs ($\text{Engine Hours} \times \text{SFOC}$)</li>
-                        <li>Tank Soundings</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+								<h3>Future Roadmap: Industrial AI</h3>
+								<p>
+									With a robust data foundation in place, the next phase focuses on <strong>Predictive Analytics</strong>:
+								</p>
+								<ul>
+									<li><strong>Fuel Consumption Prediction:</strong> Using XGBoost models trained on weather, draft, and speed data to predict expected fuel burn.</li>
+									<li><strong>Anomaly Detection:</strong> Real-time alerts when actual consumption deviates significantly from the AI-predicted baseline.</li>
+									<li><strong>Physics-Informed ML:</strong> Integrating domain knowledge (hydrodynamics) into machine learning models for higher accuracy.</li>
+								</ul>
 
-        <!-- Section 3 -->
-        <section class="space-y-4 border-t border-slate-800 pt-8">
-            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-                <span class="text-brand-500 font-mono">3.</span> Path to Industrial AI
-            </h2>
-            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
-                This operational data foundation now enables advanced analytics:
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-4 bg-slate-800/40 rounded-xl border border-slate-800">
-                    <h4 class="font-bold text-white text-sm mb-1">Descriptive Digital Twin</h4>
-                    <p class="text-xs text-slate-400">2D map-based tracking with historical trajectory playback.</p>
-                </div>
-                <div class="p-4 bg-slate-800/40 rounded-xl border border-slate-800">
-                    <h4 class="font-bold text-white text-sm mb-1">Predictive AI (Future Work)</h4>
-                    <p class="text-xs text-slate-400">Using clean data to train Physics-Informed ML models for fuel consumption prediction and anomaly detection.</p>
-                </div>
-            </div>
-        </section>
+								<p>
+									<em>Note: Due to confidentiality agreements, specific source code and raw data are not shared. However, similar architectural patterns are implemented in my open-source project <a href="https://github.com/majidguodarzi/Cost2Plan">Cost2Plan</a>.</em>
+								</p>
 
-        <!-- Section 4 -->
-        <section class="space-y-4 border-t border-slate-800 pt-8">
-            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
-                <span class="text-brand-500 font-mono">4.</span> Lessons Learned
-            </h2>
-            <ul class="space-y-3 text-slate-300 text-sm sm:text-base">
-                <li class="flex items-start gap-3">
-                    <i class="fas fa-check text-brand-500 mt-1"></i>
-                    <span><strong>Data Quality is Architectural:</strong> You cannot build AI on dirty data.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fas fa-check text-brand-500 mt-1"></i>
-                    <span><strong>Domain Modeling Matters:</strong> Software must reflect real-world concepts like "Operational Slots."</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fas fa-check text-brand-500 mt-1"></i>
-                    <span><strong>Legacy Systems hold Knowledge:</strong> Extract business logic before rewriting.</span>
-                </li>
-            </ul>
-        </section>
+							</section>
 
-        <!-- Footer / Navigation CTA -->
-        <div class="pt-8 border-t border-slate-800 flex justify-between items-center text-sm">
-            <a href="/" class="text-brand-500 hover:text-brand-400 font-medium inline-flex items-center gap-2">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
-            </a>
-            <span class="text-xs text-slate-500">Author: Madjid Goudarzi</span>
-        </div>
+					</div>
+				</div>
 
-    </main>
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Majid Guodarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 mt-20 py-8 text-center text-xs text-slate-500">
-        <div class="max-w-5xl mx-auto px-6">
-            <p>&copy; Madjid Goudarzi. Confidentiality Agreements Respected.</p>
-        </div>
-    </footer>
+		</div>
 
-</body>
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
 </html>

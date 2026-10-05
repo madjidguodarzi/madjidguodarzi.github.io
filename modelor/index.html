@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Modelor: 2D Resource & Operational Geometry Engine - Majid Guodarzi</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">Majid Guodarzi</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/index.html">Home</a></li>
+							<li><a href="/articles/Modelor-English-Paper-2007-2026.pdf">Download Full Article</a></li>
+							<li><a href="mailto:madjid.guodarzi@gmail.com" class="button primary">Contact</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Modelor: Early 2D Resource & Operational Geometry Engine</h2>
+							<p>The First Foundation: Combining Spatial Modeling, Operational Geometry & Volume Calculations (2007)</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="/images/modelor-cover.jpg" alt="Modelor 3D Surface Visualization and Operational Geometry" /></a>
+								
+								<h3>The Genesis: Bridging Geological Modeling & Operational Costing</h3>
+								<p>
+									Developed in 2007 as my <strong>first major engineering software project</strong> during my studies at Amirkabir University of Technology, 
+									<strong>Modelor</strong> was designed to address a critical domain gap: creating accessible, lightweight 2D grid-based modeling 
+									for tabular (layered) ore deposits without relying solely on monolithic commercial suites.
+								</p>
+								<p>
+									While standard commercial tools provided basic surface interpolation, field operations needed a direct link between 
+									<strong>geological surfaces, operational geometry (benches, ramps), and precise volume calculations</strong> for accurate extraction cost estimation. 
+									Modelor laid the architectural and domain foundation for my later work in offshore data platforms and modern Industrial AI engines[cite: 1].
+								</p>
+
+								<hr />
+
+								<h3>Core Engineering & Analytical Capabilities</h3>
+								
+								<h4>1. Spatial Interpolation & Data Fusion Pipeline</h4>
+								<p>
+									Modelor ingested exploration borehole datasets (Collar and Assay files) alongside digitized map data, standardizing coordinate and depth inputs[cite: 1]. 
+									It implemented an <strong>Inverse Distance to a Power (IDW)</strong> spatial interpolation engine to generate regularized 2D grid models across custom extents, cell sizes, and smoothing parameters[cite: 1].
+								</p>
+
+								<h4>2. Operational Geometry & Surfer Interoperability</h4>
+								<p>
+									In real-world deployment on a layered copper deposit, Modelor demonstrated hybrid data integration by importing Kriging-generated topographic and pit models from Surfer[cite: 1]. 
+									The platform layered active operational geometry—such as mining benches and haulage ramps—directly onto these models to compute real-world excavation volumes[cite: 1].
+								</p>
+
+								<h4>3. 3D Surface Rendering & Mathematical Volume Engine</h4>
+								<p>
+									Equipped with a native OpenGL rendering pipeline, Modelor visualized multi-layered 3D surfaces and interactive borehole traces[cite: 1]. 
+									It executed volume calculations between arbitrary surfaces (e.g., roof and floor layers) using the numerical <strong>trapezoidal rule</strong>, forming the quantitative core for operational cost estimation[cite: 1].
+								</p>
+
+								<hr />
+
+								<h3>Technical Architecture & Stack (2007)</h3>
+								<p>
+									Designed for execution on resource-constrained hardware, Modelor prioritized low-level spatial computation performance[cite: 1]:
+								</p>
+								<ul>
+									<li><strong>Core Engine & UI:</strong> Object Pascal / Delphi (engineered for standalone execution speed and UI responsiveness)[cite: 1].</li>
+									<li><strong>Graphics & Visualization:</strong> Hardware-accelerated OpenGL for real-time 3D surface rendering and cross-section generation[cite: 1].</li>
+									<li><strong>Data & File Handling:</strong> Proprietary binary grid formats with CSV/ASCII parsers for Collar, Assay, and Surfer Grid interchange[cite: 1].</li>
+									<li><strong>Mathematical Algorithms:</strong> Custom IDW spatial estimation algorithms, polyline cross-section extraction, and trapezoidal numerical integration[cite: 1].</li>
+								</ul>
+
+								<hr />
+
+								<h3>Validation & Verification</h3>
+								<p>
+									To verify numerical precision, Modelor's outputs were benchmarked against Golden Software Surfer using identical input data, grid resolutions, and cross-section vectors[cite: 1]:
+								</p>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Validation Metric</th>
+												<th>Benchmark Result</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Volume Calculation Accuracy</td>
+												<td>Matched Surfer trapezoidal volume outputs under identical surface constraints[cite: 1].</td>
+											</tr>
+											<tr>
+												<td>Contour & Cross-Section Consistency</td>
+												<td>Identical spatial trend lines and elevation profiles across arbitrary slice vectors[cite: 1].</td>
+											</tr>
+											<tr>
+												<td>Operational Impact</td>
+												<td>Successfully computed bench-by-bench excavation volumes for financial feasibility[cite: 1].</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<hr />
+
+								<h3>Evolutionary Impact: From Spatial Geometry to Industrial AI</h3>
+								<p>
+									Modelor was my foundational project in domain-driven modeling[cite: 1]. The engineering principles established here—handling spatial geometry, volume computation, data validation, and tying physical parameters directly to financial/cost models—served as the direct blueprint for my subsequent career:
+								</p>
+								<ul>
+									<li><strong>Offshore Fleet Operations:</strong> Expanding deterministic spatial rules into real-time telemetry processing for 70+ vessels.</li>
+									<li><strong>Industrial AI (Plan2Cost / Cost2Plan):</strong> Transitioning classical 2D/3D spatial geometry and volume estimation into automated computer vision and hybrid ML cost engines[cite: 1].</li>
+								</ul>
+
+								<p>
+									<em>Note: Source code and documentation for this early project have been compiled for retrospective analysis and are accessible on GitHub at <a href="https://github.com/madjidguodarzi/modelor-tabular-deposit-modeling" target="_blank">modelor-tabular-deposit-modeling</a>[cite: 1].</em>
+								</p>
+
+								<!-- Action Callouts -->
+								<div class="row gtr-50 gtr-uniform" style="margin-bottom: 2em;">
+									<div class="col-12 col-12-xsmall">
+										<a href="https://github.com/madjidguodarzi/modelor-tabular-deposit-modeling" class="button fit icon brands fa-github" target="_blank">View GitHub Repository</a>
+									</div>
+								</div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Majid Guodarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>HandDrawn-to-3D & Cost Estimator - Majid Guodarzi</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="/">Majid Guodarzi</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/index.html">Home</a></li>
+							<li><a href="/#projects">Projects</a></li>
+							<li><a href="mailto:madjid.goudarzi@gmail.com" class="button primary">Contact</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>HandDrawn Floor Plan to 3D & Automated Cost Estimator</h2>
+							<p>Bridge Between Computer Vision, Spatial Graph Detection, and Industrial Cost Engineering</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="/images/3d-estimator-cover.jpg" alt="HandDrawn Canvas to 3D Model Generation" /></a>
+								
+
+								<h3>The Industrial Problem: Closing the Gap Between Sketches & Estimates</h3>
+								<p>
+									In architecture, construction, and structural estimation, converting hand-drawn sketches or raw floor plan images into accurate 3D geometry and Bill of Quantities (BOQ) remains a manual, error-prone, and time-consuming task. 
+								</p>
+								<p>
+									<strong>HandDrawn-to-3D & Cost Estimator</strong> automates this pipeline by combining an interactive canvas, continuous computer vision processing, wall segment graph extraction, and an automated cost engine. It translates 2D pixel coordinates into volumetric 3D structures and real-time material cost estimations.
+								</p>
+
+								<hr />
+
+								<h3>Key AI & Engineering Capabilities</h3>
+								
+								<h4>1. Dynamic Wall Sketching & Computer Vision Extraction</h4>
+								<p>
+									Features a web-based responsive canvas allowing users to draw freehand room layouts or upload floor plan images. The processing pipeline normalizes stroke vectors, detects intersecting wall segments, and enforces geometric closure constraints.
+								</p>
+
+								<h4>2. Graph-Based Room Topology & Volumetric Reconstruction</h4>
+								<p>
+									Utilizes cycle detection algorithms on wall adjacency graphs to identify closed room polygons. Once topology is verified, the engine extrudes 2D contours into 3D parametric meshes (calculating wall surface areas, room volumes, and boundary dimensions).
+								</p>
+
+								<h4>3. Automated Bill of Materials (BOM) & Cost Calculation Engine</h4>
+								<p>
+									Translates physical spatial parameters (e.g., surface area, wall thickness, ceiling height) into structured material unit rates. The engine automatically computes total required masonry, drywall, coating, and labor costs dynamically as the user modifies the drawing.
+								</p>
+
+								<hr />
+
+								<h3>Technical Architecture & Tech Stack</h3>
+								<p>
+									Built with a modern, lightweight web-native architecture designed for low latency and interactive visualization:
+								</p>
+								<ul>
+									<li><strong>Frontend & Canvas Engine:</strong> HTML5 Canvas API / JavaScript (ES6+) for real-time stroke vectorization and UI state management.</li>
+									<li><strong>3D Rendering Pipeline:</strong> WebGL / Three.js for client-side multi-view 3D mesh extrusion and spatial navigation.</li>
+									<li><strong>Geometry & Graph Parsing:</strong> Custom graph parsing algorithms for room cycle detection and polygon triangulation.</li>
+									<li><strong>Cost Integration API:</strong> Modular estimation backend mapping detected geometry to configurable unit pricing databases.</li>
+								</ul>
+
+								<hr />
+
+								<h3>Evolutionary Continuity in Industrial AI</h3>
+								<p>
+									This project represents the modern AI-driven evolution of concepts originally explored in my 2007 <strong>Modelor</strong> project[cite: 1]:
+								</p>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Domain Phase</th>
+												<th>Approach & Methodology</th>
+												<th>Key Deliverable</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><strong>2007 (Modelor)</strong></td>
+												<td>Inverse Distance Interpolation & Trapezoidal Geometry (Delphi/OpenGL)[cite: 1]</td>
+												<td>2D Ore Layer Volume & Pit Excavation Cost Estimation[cite: 1]</td>
+											</tr>
+											<tr>
+												<td><strong>Modern Applied AI</strong></td>
+												<td>Computer Vision, Graph Topology Extraction & WebGL Spatial Extrusion</td>
+												<td>Automated Hand-Drawn Sketch to 3D & Real-time Material Estimation</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<p>
+									<em>Note: Source code, installation instructions, and live demonstration assets are available on the public repository at <a href="https://github.com/madjidguodarzi/HandDrawn-to-3D-Cost-Estimator" target="_blank">HandDrawn-to-3D-Cost-Estimator</a>.</em>
+								</p>
+
+								<!-- Action Callouts -->
+								<div class="row gtr-50 gtr-uniform" style="margin-bottom: 2em;">
+									<div class="col-12 col-12-xsmall">
+										<a href="https://github.com/madjidguodarzi/HandDrawn-to-3D-Cost-Estimator" class="button fit icon brands fa-github" target="_blank">View GitHub Repository</a>
+									</div>
+								</div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="https://linkedin.com" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/madjidguodarzi" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+						<li><a href="mailto:madjid.goudarzi@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Majid Guodarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>
