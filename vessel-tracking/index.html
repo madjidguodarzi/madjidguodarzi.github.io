@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Vessel Tracking & Operational Data Platform | Madjid Goudarzi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- KaTeX for Math Equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-tight text-white hover:text-brand-500 transition">
+                Madjid Goudarzi<span class="text-brand-500">.</span>
+            </a>
+            <a href="/" class="inline-flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+
+        <!-- Title / Hero Section -->
+        <section class="space-y-6">
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider">
+                    Industrial Case Study
+                </span>
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wider">
+                    <i class="fas fa-lock text-xs mr-1"></i> Confidential Data Protected
+                </span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                From Operational Data to Industrial AI: A Case Study in Offshore Fleet Management
+            </h1>
+            <p class="text-lg text-slate-400 leading-relaxed">
+                An architectural deep dive into building an Operational Data Engineering Layer for 70+ Offshore Support Vessels (OSV) over a 6-year engineering journey.
+            </p>
+
+            <div class="p-4 bg-slate-800/40 border border-slate-800 rounded-xl text-xs text-slate-400 leading-relaxed">
+                <strong class="text-slate-200">Note:</strong> This article documents the architectural decisions and engineering challenges of a proprietary industrial system developed over 6 years. Due to confidentiality agreements, no source code or raw operational data is shared. The focus is on Domain Modeling, Data Engineering Pipelines, and System Architecture.
+            </div>
+
+            <!-- Metadata Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-b border-slate-800 py-4 text-xs">
+                <div>
+                    <span class="text-slate-500 block">Domain</span>
+                    <span class="font-semibold text-slate-200">Oil & Gas Logistics / Offshore</span>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">Scale</span>
+                    <span class="font-semibold text-slate-200">70+ OSV Fleet</span>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">Author</span>
+                    <span class="font-semibold text-slate-200">Madjid Goudarzi</span>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">Focus Area</span>
+                    <span class="font-semibold text-slate-200">Data Engineering & Industrial AI</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abstract -->
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white tracking-tight">Abstract</h2>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                In offshore logistics, a significant portion of critical decision-making data comes directly from vessels and the operational environment. These data are often unstructured, incomplete, and inconsistent. This case study details the development of an Operational Data Engineering Layer that transforms raw vessel reports into reliable, structured information for enterprise systems (ERP) and future Industrial AI applications.
+            </p>
+        </section>
+
+        <!-- Section 1 -->
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+                <span class="text-brand-500 font-mono">1.</span> The Core Problem: Why Generic ERPs Fail
+            </h2>
+            <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
+                <p>
+                    Generic ERP systems assume clean, static data. However, offshore operations are dynamic:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-slate-400 pl-2">
+                    <li>Data arrives via low-bandwidth satellite links.</li>
+                    <li>Vessels serve multiple projects simultaneously.</li>
+                    <li>Contracts involve dynamic clauses (Off-hire, Laytime).</li>
+                </ul>
+                <p>
+                    The gap between Raw Operational Reality and Structured Enterprise Needs required a custom middleware solution.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+                <span class="text-brand-500 font-mono">2.</span> Key Engineering Challenges & Solutions
+            </h2>
+
+            <div class="grid grid-cols-1 gap-6">
+                <!-- 2.1 -->
+                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
+                    <h3 class="text-lg font-bold text-white">2.1. Data Validation Pipeline</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        We implemented a two-stage validation pipeline:
+                    </p>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-400 pl-2 space-y-1">
+                        <li><strong>Client-Side:</strong> Validates range, format, and mandatory fields before sending via expensive satellite links.</li>
+                        <li><strong>Server-Side:</strong> Final structural validation and registration in the central database.</li>
+                    </ul>
+                </div>
+
+                <!-- 2.2 -->
+                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
+                    <h3 class="text-lg font-bold text-white">2.2. Cost-to-Event Linkage (Data Quality Gate)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        To prevent "orphan records," every cost entry must be linked to a valid operational event (e.g., Travel ID or Port Call ID). This ensures traceability: <span class="text-brand-500 font-mono">Cost &rarr; Event &rarr; Contract &rarr; Operation</span>.
+                    </p>
+                </div>
+
+                <!-- 2.3 -->
+                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
+                    <h3 class="text-lg font-bold text-white">2.3. Contract-Vessel Abstraction</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Instead of linking contracts directly to physical vessel IDs, we used an <strong>"Operational Slot"</strong> concept. This allows vessel substitution without breaking the historical continuity of the contract.
+                    </p>
+                </div>
+
+                <!-- 2.4 -->
+                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-3">
+                    <h3 class="text-lg font-bold text-white">2.4. Time-Weighted Cost Allocation</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        For vessels serving multiple projects, costs are allocated based on actual active duration:
+                    </p>
+                    <div class="p-4 bg-slate-900 rounded-lg text-center font-mono text-sm text-brand-400 overflow-x-auto">
+                        $$\text{Share}(\text{Project}_i) = \frac{\text{Duration}(\text{Project}_i)}{\text{Total\_Active\_Duration}}$$
+                    </div>
+                </div>
+
+                <!-- 2.5 -->
+                <div class="p-6 bg-slate-800/30 border border-slate-800 rounded-xl space-y-2">
+                    <h3 class="text-lg font-bold text-white">2.5. Three-Way Fuel Reconciliation</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        The system compares three independent sources to detect anomalies:
+                    </p>
+                    <ul class="list-disc list-inside text-xs sm:text-sm text-slate-400 pl-2 space-y-1">
+                        <li>Crew Reports</li>
+                        <li>Engine Logs ($\text{Engine Hours} \times \text{SFOC}$)</li>
+                        <li>Tank Soundings</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-4 border-t border-slate-800 pt-8">
+            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+                <span class="text-brand-500 font-mono">3.</span> Path to Industrial AI
+            </h2>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                This operational data foundation now enables advanced analytics:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-800/40 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white text-sm mb-1">Descriptive Digital Twin</h4>
+                    <p class="text-xs text-slate-400">2D map-based tracking with historical trajectory playback.</p>
+                </div>
+                <div class="p-4 bg-slate-800/40 rounded-xl border border-slate-800">
+                    <h4 class="font-bold text-white text-sm mb-1">Predictive AI (Future Work)</h4>
+                    <p class="text-xs text-slate-400">Using clean data to train Physics-Informed ML models for fuel consumption prediction and anomaly detection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-4 border-t border-slate-800 pt-8">
+            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+                <span class="text-brand-500 font-mono">4.</span> Lessons Learned
+            </h2>
+            <ul class="space-y-3 text-slate-300 text-sm sm:text-base">
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-brand-500 mt-1"></i>
+                    <span><strong>Data Quality is Architectural:</strong> You cannot build AI on dirty data.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-brand-500 mt-1"></i>
+                    <span><strong>Domain Modeling Matters:</strong> Software must reflect real-world concepts like "Operational Slots."</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-brand-500 mt-1"></i>
+                    <span><strong>Legacy Systems hold Knowledge:</strong> Extract business logic before rewriting.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer / Navigation CTA -->
+        <div class="pt-8 border-t border-slate-800 flex justify-between items-center text-sm">
+            <a href="/" class="text-brand-500 hover:text-brand-400 font-medium inline-flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <span class="text-xs text-slate-500">Author: Madjid Goudarzi</span>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-20 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-6">
+            <p>&copy; Madjid Goudarzi. Confidentiality Agreements Respected.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
