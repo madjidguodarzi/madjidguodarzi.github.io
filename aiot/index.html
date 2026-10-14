@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<!--
+    Landed by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Software-to-Physical Execution Pipeline | Madjid Goudarzi</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+			<header id="header">
+				<h1 id="logo"><a href="https://github.com/madjidguodarzi/" target="_blank">Majid Guodarzi</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li>
+							<a href="#projects">Featured Projects</a>
+							<ul>
+								<li><a href="/vessel-tracking/" class="scrolly">Vessel Tracking & Data Platform</a></li>
+								<li><a href="/aiot/" class="scrolly">AIOT</a></li>
+								<li><a href="/plan-to-cost/" class="scrolly">HandDrawn to 3D Estimator</a></li>
+								<li><a href="/modelor/" class="scrolly">Modelor 2D Ore Modeling</a></li>
+								<li><a href="/rag/" class="scrolly">Enterprise RAG & Search Engine</a></li>
+								<li><a href="/well-watch/" class="scrolly">Well-Watch Platform</a></li>
+							</ul>
+						</li>
+						<li><a href="https://github.com/madjidguodarzi" target="_blank">GitHub Profile</a></li>
+						<li><a href="mailto:madjid.guodarzi@gmail.com" class="button primary">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+            <!-- Main -->
+            <div id="main" class="wrapper style1">
+                <div class="container">
+                    <header class="major">
+                        <h2>Software-to-Physical Execution Pipeline</h2>
+                        <p>Bridging Natural Language, Spatial Digital Twins, and Hardware Actuators (LLM + MCP + MQTT)</p>
+                    </header>
+
+                    <!-- Content -->
+                        <section id="content">
+                            <!-- ویدیو کلیپ اصلی بالای صفحه -->
+                            <div class="box alt" style="margin-bottom: 2em;">
+                                <video controls autoplay muted loop class="image fit" style="border-radius: 6px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+                                    <source src="/videos/aiot/02.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            
+                            <h3>Architectural Overview: Software Meets the Physical World</h3>
+                            <p>This project showcases advanced systems engineering focused on <strong>bridging software intelligence with real-world physical execution</strong> without relying on third-party cloud platforms. Rather than presenting a consumer IoT product, the architecture demonstrates a robust, decoupled control pipeline: unstructured natural language inputs and spatial interface commands are ingested, parsed by a localized Large Language Model governed by a <strong>Model Context Protocol (MCP) Server</strong>, and dispatched asynchronously via <strong>MQTT</strong> to microcontrollers. Crucially, a bidirectional <strong>closed-loop state synchronization</strong> mechanism feeds hardware statuses back into a real-time 3D spatial interface[cite: 1].</p>
+
+                            <!-- نمودار معماری اصلاح‌شده با حلقه بازخورد و هماهنگ با تم Landed -->
+                            <div class="box" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 8px; margin: 2em 0;">
+                                <h4 style="text-align: center; margin-bottom: 25px; color: #e44c65; letter-spacing: 1px;">End-to-End Closed-Loop Pipeline & Architecture</h4>
+                                <svg viewBox="0 0 920 340" style="width: 100%; height: auto; font-family: inherit;">
+                                    <style>
+                                        .tier-box { fill: #1c1d26; stroke: #e44c65; stroke-width: 1.5; rx: 6; }
+                                        .tier-title { fill: #e44c65; font-size: 11px; font-weight: bold; text-anchor: start; letter-spacing: 0.5px; }
+                                        .tier-text { fill: #ffffff; font-size: 11px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+                                        .tier-sub { fill: #aaaaaa; font-size: 8.5px; text-anchor: middle; dominant-baseline: middle; }
+                                        .tier-line { stroke: #e44c65; stroke-width: 1.5; marker-end: url(#arrow-tier); fill: none; }
+                                        .feedback-line { stroke: #4affa4; stroke-width: 1.5; stroke-dasharray: 4; marker-end: url(#arrow-feedback); fill: none; }
+                                        .lane-line { stroke: rgba(255,255,255,0.1); stroke-dasharray: 4; stroke-width: 1; }
+                                        .feedback-label { fill: #4affa4; font-size: 8.5px; font-weight: bold; text-anchor: middle; }
+                                    </style>
+                                    <defs>
+                                        <marker id="arrow-tier" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#e44c65"/>
+                                        </marker>
+                                        <marker id="arrow-feedback" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4affa4"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Swimlane Tiers -->
+                                    <line x1="130" y1="65" x2="900" y2="65" class="lane-line"/>
+                                    <text x="15" y="65" class="tier-title">1. INGESTION</text>
+
+                                    <line x1="130" y1="145" x2="900" y2="145" class="lane-line"/>
+                                    <text x="15" y="145" class="tier-title">2. COGNITIVE</text>
+
+                                    <line x1="130" y1="225" x2="900" y2="225" class="lane-line"/>
+                                    <text x="15" y="225" class="tier-title">3. TRANSPORT</text>
+
+                                    <text x="15" y="295" class="tier-title">4. ACTUATOR</text>
+
+                                    <!-- Tier 1: Ingestion Nodes -->
+                                    <g transform="translate(150, 25)">
+                                        <rect class="tier-box" width="165" height="45"/>
+                                        <text x="82.5" y="17" class="tier-text">Telegram & Webhooks</text>
+                                        <text x="82.5" y="31" class="tier-sub">Async User Messages</text>
+                                    </g>
+                                    <g transform="translate(335, 25)">
+                                        <rect class="tier-box" width="165" height="45"/>
+                                        <text x="82.5" y="17" class="tier-text">3D Web Digital Twin</text>
+                                        <text x="82.5" y="31" class="tier-sub">Three.js / Spatial UI</text>
+                                    </g>
+                                    <g transform="translate(520, 25)">
+                                        <rect class="tier-box" width="165" height="45"/>
+                                        <text x="82.5" y="17" class="tier-text">Traditional App & API</text>
+                                        <text x="82.5" y="31" class="tier-sub">REST / Mobile Endpoints</text>
+                                    </g>
+
+                                    <!-- Vertical Connectors to Tier 2 -->
+                                    <path d="M 232.5 70 L 232.5 110 L 430 110 L 430 120" class="tier-line"/>
+                                    <path d="M 417.5 70 L 417.5 95 L 430 95 L 430 120" class="tier-line"/>
+                                    <path d="M 602.5 70 L 602.5 110 L 430 110 L 430 120" class="tier-line"/>
+
+                                    <!-- Tier 2: Cognitive (LLM & MCP) -->
+                                    <g transform="translate(240, 120)">
+                                        <rect class="tier-box" width="380" height="50"/>
+                                        <text x="190" y="18" class="tier-text">LLM Intent Parser & MCP Server</text>
+                                        <text x="190" y="34" class="tier-sub">Qwen / Llama on Pi 5 (Schema Validation & Routing)</text>
+                                    </g>
+
+                                    <!-- Vertical Connector to Tier 3 -->
+                                    <path d="M 430 170 L 430 200" class="tier-line"/>
+
+                                    <!-- Tier 3: Transport & Broker Layer -->
+                                    <g transform="translate(240, 200)">
+                                        <rect class="tier-box" width="380" height="50"/>
+                                        <text x="190" y="18" class="tier-text">Communication & Broker Layer</text>
+                                        <text x="190" y="34" class="tier-sub">MQTT Publish/Subscribe Mesh & Local Broker</text>
+                                    </g>
+
+                                    <!-- Vertical Connector to Tier 4 -->
+                                    <path d="M 430 250 L 430 270" class="tier-line"/>
+
+                                    <!-- Tier 4: Actuators & Sensors -->
+                                    <g transform="translate(150, 270)">
+                                        <rect class="tier-box" width="175" height="42"/>
+                                        <text x="87.5" y="15" class="tier-text" style="font-size: 10px;">ESP8266 / Relays / RF</text>
+                                        <text x="87.5" y="28" class="tier-sub">Arduino Compatible Nodes</text>
+                                    </g>
+                                    <g transform="translate(337.5, 270)">
+                                        <rect class="tier-box" width="175" height="42"/>
+                                        <text x="87.5" y="15" class="tier-text" style="font-size: 10px;">ESP32-CAM / Vision</text>
+                                        <text x="87.5" y="28" class="tier-sub">Camera & Edge Nodes</text>
+                                    </g>
+                                    <g transform="translate(525, 270)">
+                                        <rect class="tier-box" width="175" height="42"/>
+                                        <text x="87.5" y="15" class="tier-text" style="font-size: 10px;">Pi 5 GPIO / IR / Motors</text>
+                                        <text x="87.5" y="28" class="tier-sub">Sensors & Actuators</text>
+                                    </g>
+
+                                    <!-- Feedback Loop / State Sync (Closed-Loop) -->
+                                    <path d="M 150 291 L 105 291 L 105 47 L 330 47" class="feedback-line"/>
+                                    <text x="105" y="170" class="feedback-label" transform="rotate(-90, 105, 170)">State Feedback & Sync (MQTT)</text>
+                                </svg>
+                            </div>
+
+                            <h3>System Demos & Visual Evidence</h3>
+                            <p>The following case studies document the end-to-end execution pipeline, bridging digital interfaces directly with physical microcontrollers[cite: 1].</p>
+                            
+                            <!-- Video Showcase Section -->
+                            <div class="row gtr-uniform">
+                                <div class="col-6 col-12-medium">
+                                    <h4>1. 3D Digital Twin & Hardware Sync</h4>
+                                    <video controls class="image fit" style="border-radius: 4px; background: #000;">
+                                        <source src="/videos/aiot/aiot-demo.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p style="font-size: 0.9em; margin-top: 0.5em;">Real-time bidirectional state binding between web-based Three.js spatial environments and edge hardware nodes[cite: 1].</p>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <h4>2. Low-Cost Hardware Hacking (Relay + Remote)</h4>
+                                    <video controls class="image fit" style="border-radius: 4px; background: #000;">
+                                        <source src="/videos/aiot/03.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p style="font-size: 0.9em; margin-top: 0.5em;">Pragmatic physical integration interfacing RF remote circuits directly with microcontroller-driven relay modules[cite: 1].</p>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <h4>3. Infrared (IR) Appliance Control</h4>
+                                    <video controls class="image fit" style="border-radius: 4px; background: #000;">
+                                        <source src="/videos/aiot/IR.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p style="font-size: 0.9em; margin-top: 0.5em;">Dynamic translation of abstract software commands into modulated IR signals for entertainment and media units[cite: 1].</p>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <h4>4. Natural Language to Hardware Execution</h4>
+                                    <video controls class="image fit" style="border-radius: 4px; background: #000;">
+                                        <source src="/videos/aiot/On-Off.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p style="font-size: 0.9em; margin-top: 0.5em;">End-to-end processing of free-form human text into structured JSON commands and immediate physical triggers[cite: 1].</p>
+                                </div>
+                            </div>
+
+                            <h3>Core Technology Stack & Engineering Standards</h3>
+                            <ul>
+                                <li><strong>Pipeline Architecture:</strong> Webhook Triggers, Model Context Protocol (MCP), Event-Driven MQTT Messaging[cite: 1]</li>
+                                <li><strong>Edge AI & Inference:</strong> Local LLM Execution on Raspberry Pi 5, Structured JSON Schema Validation[cite: 1]</li>
+                                <li><strong>Microcontrollers & Hardware:</strong> ESP8266, ESP32-CAM, GPIO Circuitry, Custom Relay & RF/IR Modding[cite: 1]</li>
+                                <li><strong>Spatial Web & Interface:</strong> Three.js, WebGL, SweetHome3D Spatial Mapping, Python Backend Services[cite: 1]</li>
+                                <li><strong>Networking Protocols:</strong> REST APIs, WebSockets, Closed-Loop MQTT Publish/Subscribe Mesh[cite: 1]</li>
+                            </ul>
+
+                            <h3>Engineering Impact</h3>
+                            <p>This implementation highlights core competencies in full-stack systems integration, proving that complex software architectures can interface seamlessly with physical hardware. By constructing a secure, offline, and deterministic bridge from human intent to physical actuators, the project serves as a solid technical blueprint for modern physical computing[cite: 1].</p>
+                        </section>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Madjid Goudarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/jquery.dropotron.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+    </body>
+</html>
