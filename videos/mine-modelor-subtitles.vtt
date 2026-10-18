@@ -1,0 +1,36 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.000
+Digitizing topographic contours and
+extracting precise coordinate points from raster maps.
+
+2
+00:00:07.000 --> 00:00:12.000
+Validating digitized Collar data and converting both
+Collar and Assay datasets into custom binary format (.mm).
+
+3
+00:00:12.000 --> 00:00:25.000
+Importing borehole data, merging geological layers,
+and selecting target parameters such as thickness and ore grades.
+
+4
+00:00:26.000 --> 00:00:36.000
+Generating spatial models using Inverse Distance to a Power (IDP)
+interpolation algorithm for Z-coordinates and grade distribution.
+
+5
+00:00:36.000 --> 00:00:50.000
+Visualizing 3D ore body surfaces and integrating borehole
+trajectories to validate the geological model geometry.
+
+6
+00:00:50.000 --> 00:00:56.000
+Calculating recoverable ore volume and estimating
+the Stripping Ratio to evaluate economic feasibility.
+
+7
+00:00:57.000 --> 00:01:00.000
+Finalizing resource estimation using
+the Trapezoidal method for accurate mine planning optimization.

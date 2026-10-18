@@ -1,0 +1,55 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.000
+Initializing a new architectural project
+and setting up the workspace environment.
+
+2
+00:00:02.000 --> 00:00:04.000
+Importing hand-drawn pen sketches into
+the digital modeling interface.
+
+3
+00:00:04.000 --> 00:00:06.000
+Calibrating the raster map scale to ensure
+accurate real-world dimensional mapping.
+
+4
+00:00:06.000 --> 00:00:07.300
+Detecting structural walls automatically using
+OpenCV-based computer vision algorithms.
+
+5
+00:00:07.300 --> 00:00:09.000
+Human-in-the-loop verification: reviewing,
+editing, and saving detected wall geometries.
+
+6
+00:00:09.000 --> 00:00:12.000
+Segmenting rooms based on validated walls with
+manual confirmation for spatial accuracy.
+
+7
+00:00:12.000 --> 00:00:15.000
+Defining room usability; auto-generating cost
+items and quantities based on functional type.
+
+8
+00:00:15.000 --> 00:00:20.000
+Customizing and updating default unit costs
+to align with current market pricing standards.
+
+9
+00:00:20.000 --> 00:00:21.000
+Exporting the finalized model in Sweet Home 3D
+format (.sh3d) for external compatibility.
+
+10
+00:00:22.000 --> 00:00:28.000
+
+
+11
+00:00:28.000 --> 00:00:37.000
+Generating native-language reports via Text-to-SQL;
+converting natural queries into database insights.

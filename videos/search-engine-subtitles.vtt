@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:12.000
+Executing on-premise AI OCR using Qwen-3.5-35B and llama-server;
+monitoring real-time CPU/GPU utilization across RTX 5090 and GTX 1660 Super.
+
+2
+00:00:13.000 --> 00:00:17.000
+Human-in-the-loop validation: token count analytics detect anomalies
+when exceeding the 4,000-token safety threshold configured for the model.
+
+3
+00:00:18.000 --> 00:00:22.000
+Reviewing OCR hallucinations and error patterns, such as repetitive
+character generation or text duplication in low-confidence regions.
+
+4
+00:00:22.000 --> 00:00:30.000
+Embedding extracted text chunks via Infinity-Emb server and indexing
+them into Elasticsearch for high-performance semantic retrieval.
+
+5
+00:00:31.000 --> 00:00:34.000
+Performing real-time semantic search in a production environment
+to retrieve contextually relevant document fragments instantly.
+
+6
+00:00:35.000 --> 00:00:42.000
+Side-by-side verification of source PDF against OCR output, including
+full-text preview in a dedicated modal for detailed quality assurance.
+
+7
+00:00:43.000 --> 00:00:50.000
+Implementing infinite scroll pagination to load results incrementally,
+optimizing rendering performance and ensuring a seamless user experience.
+
+8
+00:00:51.000 --> 00:00:55.000
+Executing multi-domain semantic queries to validate the system's
+generalization capability across diverse technical documentation sets.
