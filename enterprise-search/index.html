@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Under Construction</title>
+		<title>Enterprise RAG & Search Engine - Majid Guodarzi</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -17,29 +17,29 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<h1 id="logo"><a href="https://github.com/madjidguodarzi/" target="_blank">Majid Guodarzi</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="/">Home</a></li>
 							<li>
-								<a href="#">Layouts</a>
+								<a href="#projects">Featured Projects</a>
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">Under Construction</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
+									<li><a href="/vessel-tracking/" class="scrolly">Vessel Tracking & Data Platform</a></li>
+									<li><a href="/aiot/" class="scrolly">AIOT</a></li>
+									<li><a href="/plan-to-cost/" class="scrolly">HandDrawn to 3D Estimator</a></li>
+									<li><a href="/modelor/" class="scrolly">Modelor 2D Ore Modeling</a></li>
+									<li><a href="/rag/" class="scrolly">Enterprise RAG & Search Engine</a></li>
+									<li><a href="/well-watch/" class="scrolly">Well-Watch Platform</a></li>
 								</ul>
 							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
+							<li>
+								<a href="#">Papers</a>
+								<ul>
+									<li><a href="/articles/vessel-tracking-fa.pdf">Download Original (Persian) Paper</a></li>
+								</ul>
+							</li>
+							<li><a href="https://github.com/madjidguodarzi" target="_blank">GitHub Profile</a></li>
+							<li><a href="mailto:madjid.guodarzi@gmail.com" class="button primary">Contact</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -48,30 +48,370 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>An enterprise search engine and RAG</h2>
-							<p></p>
+							<h2>Enterprise RAG & Intelligent Document Search</h2>
+							<p>Processing 5+ Million Pages with On-Premise AI: From High-Speed OCR to Domain-Specific Knowledge Retrieval</p>
 						</header>
 
 						<!-- Content -->
 							<section id="content">
-								<div class="box alt" style="margin-bottom: 2em;">
-									<video controls muted class="image fit" style="border-radius: 6px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-										<source src="/videos/search-engine.mp4" type="video/mp4">
-										    <track 
-												kind="subtitles" 
-												src="/videos/search-engine-subtitles.vtt" 
-												srclang="en" 
-												label="English" 
-												default>
+								
+								<h3>The Challenge: Industrial Scale & Data Sovereignty</h3>
+								<p>
+									In large industrial organizations like PetroPars, critical knowledge is trapped in millions of unstructured documents 
+									(PDFs, scanned forms, technical manuals). Generic cloud solutions pose two major risks: <strong>Data Privacy</strong> and 
+									<strong>Cost Scalability</strong>. The goal was to build a sovereign, on-premise platform capable of ingesting, indexing, 
+									and retrieving information from over 5 million pages while maintaining strict access controls and domain-specific accuracy.
+								</p>
+								<p>
+									This project implements a full-stack <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline combined with a high-performance 
+									OCR engine, designed to handle Persian/English bilingual documents and complex engineering layouts.
+								</p>
+
+								<hr />
+
+								<h3>High-Performance OCR Pipeline</h3>
+								<p>
+									The foundation of the search engine is a custom OCR pipeline optimized for speed and accuracy using 
+									<strong>Qwen3.6-35B-A3B</strong> via <strong>llama.cpp</strong>. We selected the 35B parameter model because it fits entirely within 
+									32GB VRAM, while its <strong>Mixture-of-Experts (MoE)</strong> architecture activates only 3B parameters per token, delivering 
+									inference speeds comparable to much smaller models without sacrificing reasoning capabilities.
+								</p>
+								
+								<h4>Benchmark Results (Pages Per Second)</h4>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Hardware Configuration</th>
+												<th>Parallelism</th>
+												<th>Speed</th>
+												<th>Mode</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>GTX 1660 Super (6GB VRAM)</td>
+												<td>1 Worker</td>
+												<td>~100s / page</td>
+												<td>CPU Offload</td>
+											</tr>
+											<tr>
+												<td>RTX 5080 Mobile (16GB VRAM)</td>
+												<td>4 Workers</td>
+												<td>~17s / page</td>
+												<td>Partial Offload</td>
+											</tr>
+											<tr>
+												<td>RTX 5090 Desktop (32GB VRAM)</td>
+												<td>4 Workers</td>
+												<td>~2s / page</td>
+												<td>Fully GPU</td>
+											</tr>
+											<tr>
+												<td><strong>4x RTX 5090 Cluster</strong></td>
+												<td><strong>16 Workers</strong></td>
+												<td><strong>~0.5s / page</strong></td>
+												<td><strong>Fully GPU</strong></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p>
+									<strong>Production Scale:</strong> Using the 4x RTX 5090 cluster, we processed <strong>5+ million pages in ~28 days</strong>. 
+									A human-in-the-loop validation layer identified a ~2% error rate (mostly repetitive text hallucinations), which were flagged 
+									via token-count analytics and corrected before indexing.
+								</p>
+
+								<hr />
+
+								<h3>Performance Tuning & Inference Configuration</h3>
+								<p>
+									Achieving sub-second latency at this scale required meticulous low-level optimization of the inference engine. 
+									Below is the production-grade configuration used for our primary Qwen3.6-35B-A3B instance:
+								</p>
+								<pre style="background: #2b2b2b; color: #f8f8f2; padding: 1em; border-radius: 6px; overflow-x: auto; font-size: 0.9em;">
+.\llama-server -m "Qwen3.6-35B-A3B-UD-Q4_K_M.gguf" \
+  -mm "mmproj-Qwen3.6-35B-A3B-UD-Q4_K_M.gguf" \
+  -c 8192 -ctk q8_0 -ctv q8_0 --no-mmap \
+  --host 0.0.0.0 --port 8085 -rea off -ngl -1 -t 16</pre>
+								<p>
+									<strong>Key Optimizations Explained:</strong>
+								</p>
+								<ul>
+									<li><strong>-ctk q8_0 -ctv q8_0:</strong> Quantizing Key/Value cache to 8-bit reduces VRAM footprint by ~50% with negligible accuracy loss, allowing larger context windows.</li>
+									<li><strong>--no-mmap:</strong> Disabling memory mapping forces full pre-loading into VRAM, eliminating OS paging overhead during high-concurrency inference.</li>
+									<li><strong>-ngl -1:</strong> Full GPU offloading ensures zero CPU-GPU data transfer bottlenecks during token generation.</li>
+									<li><strong>-t 16:</strong> Thread count tuned to match physical core availability for optimal prompt processing parallelism.</li>
+									<li><strong>-rea off:</strong> Disabling rope embedding scaling for native MoE compatibility and stable long-context performance.</li>
+								</ul>
+
+								<hr />
+
+								<!-- System Architecture Diagram Section -->
+								<div style="text-align: center; margin: 3em 0;">
+									<h3>System Architecture & Data Flow</h3>
+									<p style="max-width: 700px; margin: 0 auto 1.5em auto; color: #666;">
+										A high-level overview of the end-to-end pipeline, from raw document ingestion to context-aware response generation.
+									</p>
+									<img src="/images/rag-architecture.svg" alt="Enterprise RAG and OCR System Architecture Diagram" 
+										style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #fff;" />
+								</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%">
+  <defs>
+    <!-- Arrow Markers -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555" />
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#888" />
+    </marker>
+    
+    <!-- Shadows & Gradients -->
+    <filter id="box-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="grad-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-orange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0b2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8e6c9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#37474f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#263238;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Grid (Optional for engineering feel) -->
+  <rect width="100%" height="100%" fill="#fafafa" />
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eee" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Title -->
+  <text x="450" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Enterprise RAG & OCR System Architecture</text>
+
+  <!-- ================= LAYER 1: INGESTION & PREPROCESSING ================= -->
+  <g transform="translate(0, 100)">
+    <!-- Raw Docs -->
+    <g transform="translate(50, 0)">
+      <rect width="180" height="70" rx="8" fill="url(#grad-blue)" stroke="#1976d2" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#0d47a1">Raw Documents</text>
+      <text x="90" y="50" font-family="Arial" font-size="11" text-anchor="middle" fill="#555">(PDF, Scans, Forms)</text>
+    </g>
+
+    <!-- Arrow to OCR -->
+    <line x1="230" y1="35" x2="290" y2="35" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- High-Speed OCR -->
+    <g transform="translate(300, 0)">
+      <rect width="180" height="70" rx="8" fill="url(#grad-orange)" stroke="#f57c00" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#e65100">High-Speed OCR Engine</text>
+      <text x="90" y="50" font-family="Arial" font-size="11" text-anchor="middle" fill="#555">(Qwen3.6 MoE + llama.cpp)</text>
+    </g>
+
+    <!-- Arrow to Human-in-loop -->
+    <line x1="480" y1="35" x2="540" y2="35" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Human-in-the-Loop -->
+    <g transform="translate(550, 0)">
+      <rect width="180" height="70" rx="8" fill="url(#grad-purple)" stroke="#7b1fa2" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#4a148c">Human-in-the-Loop QA</text>
+      <text x="90" y="50" font-family="Arial" font-size="11" text-anchor="middle" fill="#555">(Token Analytics & Validation)</text>
+    </g>
+    
+    <!-- Feedback Loop from Human to OCR (Dashed) -->
+    <path d="M 640 70 L 640 100 L 390 100 L 390 70" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#arrow-dashed)"/>
+    <text x="515" y="95" font-family="Arial" font-size="10" fill="#666" text-anchor="middle">Correction Feedback</text>
+  </g>
+
+  <!-- ================= LAYER 2: KNOWLEDGE BASE CONSTRUCTION ================= -->
+  <g transform="translate(0, 250)">
+    <!-- Arrow down from OCR to Vectorization -->
+    <line x1="390" y1="-80" x2="390" y2="0" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Vectorization -->
+    <g transform="translate(300, 0)">
+      <rect width="180" height="60" rx="8" fill="url(#grad-green)" stroke="#388e3c" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="25" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#1b5e20">Vectorization Service</text>
+      <text x="90" y="45" font-family="Arial" font-size="11" text-anchor="middle" fill="#555">(infinity-emb Server)</text>
+    </g>
+
+    <!-- Arrow down to DB -->
+    <line x1="390" y1="60" x2="390" y2="110" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Elasticsearch Index -->
+    <g transform="translate(300, 110)">
+      <path d="M0,15 C0,5 180,5 180,15 L180,50 C180,60 0,60 0,50 Z" fill="url(#grad-purple)" stroke="#7b1fa2" stroke-width="2" filter="url(#box-shadow)"/>
+      <ellipse cx="90" cy="15" rx="90" ry="12" fill="#e1bee7" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="90" y="40" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#4a148c">Elasticsearch Vector Index</text>
+    </g>
+  </g>
+
+  <!-- ================= LAYER 3: INFERENCE & RETRIEVAL ================= -->
+  <g transform="translate(0, 450)">
+    <!-- Arrow from DB to Router -->
+    <line x1="480" y1="-90" x2="550" y2="-40" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Intent Router (Diamond) -->
+    <g transform="translate(550, -40)">
+      <polygon points="90,0 180,50 90,100 0,50" fill="#fffde7" stroke="#fbc02d" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="45" font-family="Arial" font-size="13" font-weight="bold" text-anchor="middle" fill="#f57f17">Intent Router</text>
+      <text x="90" y="65" font-family="Arial" font-size="10" text-anchor="middle" fill="#666">(Local vs Cloud / Deep Search)</text>
+    </g>
+
+    <!-- Arrow down to Output -->
+    <line x1="640" y1="60" x2="640" y2="110" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Final Response -->
+    <g transform="translate(550, 110)">
+      <rect width="180" height="60" rx="30" fill="url(#grad-dark)" stroke="#000" stroke-width="2" filter="url(#box-shadow)"/>
+      <text x="90" y="35" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">Final Response</text>
+    </g>
+    
+    <!-- Deep Search Fallback Loop -->
+    <path d="M 640 170 L 640 210 L 200 210 L 200 170 L 200 135" fill="none" stroke="#d32f2f" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-dashed)"/>
+    <text x="420" y="205" font-family="Arial" font-size="10" fill="#d32f2f" text-anchor="middle">Deep Search Fallback (Translate & Re-query)</text>
+  </g>
+
+  <!-- Layer Labels (Right Side) -->
+  <text x="850" y="135" font-family="Arial" font-size="12" fill="#999" text-anchor="end" transform="rotate(90, 850, 135)">INGESTION LAYER</text>
+  <text x="850" y="320" font-family="Arial" font-size="12" fill="#999" text-anchor="end" transform="rotate(90, 850, 320)">KNOWLEDGE LAYER</text>
+  <text x="850" y="520" font-family="Arial" font-size="12" fill="#999" text-anchor="end" transform="rotate(90, 850, 520)">INFERENCE LAYER</text>
+
+</svg>
+								<svg></svg>								
+
+								<hr />
+
+								<h3>RAG Architecture & "Deep Search"</h3>
+								<p>
+									The system uses <strong>Elasticsearch</strong> for vector storage and retrieval, powered by <strong>infinity-emb</strong> for embeddings. 
+									A key innovation is the <strong>"Deep Search" fallback mechanism</strong>: if the initial Persian embedding search yields low confidence, 
+									the query is automatically translated to English and re-executed against the index to ensure comprehensive coverage.
+								</p>
+								<ul>
+									<li><strong>Multi-Model LLM Server:</strong> A unified llama.cpp server hosts multiple specialized models. Lightweight models handle translation, classification, and title generation, while the heavy 35B model focuses solely on answer synthesis.</li>
+									<li><strong>Domain-Aware Routing:</strong> If a user doesn't specify a category (e.g., ICT, SAP), the system auto-classifies the query and routes it to the correct Elasticsearch index and prompt template.</li>
+									<li><strong>Dynamic Prompt Engineering:</strong> Admins can define versioned prompts and map them to specific domains, enforcing behavioral constraints and output formats.</li>
+								</ul>
+
+								<!-- Video Section -->
+								<a href="#" class="image fit"><img src="/images/rag-dashboard-cover.jpg" alt="RAG Admin Dashboard" /></a>
+								
+								<video controls muted class="image fit" style="border-radius: 6px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+									<source src="/videos/search-engine.mp4" type="video/mp4">
+										<track 
+											kind="subtitles" 
+											src="/videos/search-engine.vtt" 
+											srclang="en" 
+											label="English" 
+											default>
 										Your browser does not support the video tag.
-									</video>
-								</div>					
-								<div class="box alt" style="margin-bottom: 2em;">
-									<video controls muted class="image fit" style="border-radius: 6px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-										<source src="/videos/RAG.mp4" type="video/mp4">
+								</video>
+
+								<br />
+
+								<video controls muted class="image fit" style="border-radius: 6px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+									<source src="/videos/RAG.mp4" type="video/mp4">
+										<track 
+											kind="subtitles" 
+											src="/videos/RAG.vtt" 
+											srclang="en" 
+											label="English" 
+											default>
 										Your browser does not support the video tag.
-									</video>
-								</div>					
+								</video>
+
+								<hr />
+
+								<h3>Key Features Demonstrated</h3>
+								
+								<h4>1. Granular Access Control & Cost Management</h4>
+								<p>
+									As an enterprise tool, the system includes a comprehensive admin dashboard for managing users, setting daily token caps, 
+									and defining Role-Based Access Control (RBAC). Users are restricted to specific knowledge domains (e.g., ICT, HR, SAP) 
+									to prevent data leakage across departments.
+								</p>
+
+								<h4>2. Multimodal & Visual Reasoning</h4>
+								<p>
+									Beyond text, the system supports vision-language tasks. Users can upload screenshots (e.g., of an error message or UI) 
+									and ask questions like "Which button should I click?". The model analyzes the image contextually and provides precise guidance.
+								</p>
+
+								<h4>3. Dynamic Visualization (Mermaid.js)</h4>
+								<p>
+									The LLM can generate Mermaid flowcharts on-the-fly to visualize complex processes. For example, when asked about software installation, 
+									it renders an interactive flowchart showing steps from "Check Requirements" to "Final Verification", enhancing comprehension significantly.
+								</p>
+
+								<h4>4. Hybrid Inference Strategy</h4>
+								<p>
+									The system intelligently balances security and speed:
+								</p>
+								<ul>
+									<li><strong>Secure Mode:</strong> Sensitive queries run on local CUDA GPUs (On-Premise) ensuring data never leaves the infrastructure.</li>
+									<li><strong>Fast Mode:</strong> Non-sensitive queries are routed to Cloud APIs for near-instant latency with zero local GPU load.</li>
+								</ul>
+
+								<hr />
+
+								<h3>Business Impact</h3>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Metric</th>
+												<th>Impact</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Knowledge Accessibility</td>
+												<td>Instant retrieval from 5M+ pages vs. hours of manual searching</td>
+											</tr>
+											<tr>
+												<td>Operational Efficiency</td>
+												<td>Automated form filling and procedure guidance reduced helpdesk tickets</td>
+											</tr>
+											<tr>
+												<td>Data Accuracy</td>
+												<td>Human-in-the-loop validation maintained >98% OCR accuracy at scale</td>
+											</tr>
+											<tr>
+												<td>Security Compliance</td>
+												<td>100% on-premise processing for sensitive corporate data</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<hr />
+
+								<h3>Future Roadmap & Strategic Enhancements</h3>
+								<p>
+									With the core RAG and OCR infrastructure established, the next phase focuses on interoperability, advanced reasoning, and autonomous agent capabilities:
+								</p>
+								<ul>
+									<li><strong>MCP (Model Context Protocol) Integration:</strong> Transitioning from a monolithic chat interface to an MCP-compliant server architecture. This will allow the AI to securely connect with external tools (IDEs, databases, CI/CD pipelines) as standardized resources, enabling true agentic workflows beyond simple Q&A.</li>
+									<li><strong>GraphRAG Implementation:</strong> Moving beyond vector similarity to knowledge graphs. By extracting entities and relationships from the 5M+ page corpus, we can answer complex multi-hop questions that pure embedding search struggles with.</li>
+									<li><strong>Adaptive Retrieval & Re-ranking:</strong> Implementing a dynamic routing layer that chooses between keyword search (BM25), dense vector search, or hybrid approaches based on query intent.</li>
+									<li><strong>Structured Output Enforcement:</strong> Integrating JSON-mode and grammar-constrained decoding to ensure the LLM always returns parseable data for downstream automation.</li>
+									<li><strong>Real-time Feedback Loop:</strong> Leveraging the existing like/dislike system to create an active learning pipeline where negative feedback triggers automated review queues.</li>
+								</ul>
 
 							</section>
 
@@ -81,15 +421,12 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Majid Guodarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 

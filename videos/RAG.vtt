@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+Configuring the core RAG pipeline: defining LLM, embedding,
+and reranker models for optimal retrieval and generation.
+
+2
+00:00:08.000 --> 00:00:12.000
+Managing user accounts and setting daily token caps to control
+operational costs in an enterprise-scale AI deployment.
+
+3
+00:00:12.000 --> 00:00:17.000
+Engineering and versioning system prompts to enforce behavioral
+constraints and ensure consistent output quality across domains.
+
+4
+00:00:17.000 --> 00:00:28.000
+Orchestrating knowledge domains: mapping specific Elasticsearch indices
+to local or cloud LLMs based on confidentiality and latency requirements.
+
+5
+00:00:28.000 --> 00:00:30.000
+Implementing granular Role-Based Access Control (RBAC) to restrict
+user access to specific knowledge categories and sensitive data.
+
+6
+00:00:31.000 --> 00:00:35.000
+Initiating a streaming chat session; real-time GPU utilization confirms
+on-premise inference using llama.cpp with Qwen3.6-35B-A3B.
+
+7
+00:00:35.000 --> 00:00:43.000
+Demonstrating conversational branching: editing a previous prompt to
+explore alternative responses while maintaining context continuity.
+
+8
+00:00:44.000 --> 00:00:46.000
+Verifying answer accuracy by inspecting the retrieved source document
+that served as the ground truth for the generated response.
+
+9
+00:00:46.000 --> 00:00:48.000
+Comparing parallel conversation branches side-by-side to evaluate
+different reasoning paths and response variations.
+
+10
+00:00:48.000 --> 00:00:52.000
+Enforcing domain boundaries: the system correctly refuses to answer
+queries outside its authorized knowledge scope as per admin policy.
+
+11
+00:00:53.000 --> 00:01:00.000
+Collecting user feedback via like/dislike mechanisms and displaying
+real-time token consumption metrics for cost transparency.
+
+12
+00:01:00.000 --> 00:01:18.000
+Validating security policies: general queries are blocked in restricted
+domains but answered normally when switching to the public index.
+
+13
+00:01:18.000 --> 00:01:42.000
+Leveraging multimodal capabilities: analyzing uploaded screenshots
+and providing visual grounding for UI-related technical questions.
+
+14
+00:01:42.000 --> 00:02:00.000
+Exporting conversation history to multiple formats including PDF,
+Word, and print-ready layouts for offline documentation and reporting.
+
+15
+00:02:00.000 --> 00:02:10.000
+Generating dynamic Mermaid flowcharts from natural language requests
+to visualize complex installation processes and technical workflows.
+
+16
+00:02:10.000 --> 00:02:15.000
+Displaying overridden source documents where the system intelligently
+presents relevant forms instead of raw text for better user utility.
+
+17
+00:02:15.000 --> 00:02:30.000
+Contrasting domain-specific responses: comparing generic software
+installation steps against PetroPars' internal procedural guidelines.
+
+18
+00:02:30.000 --> 00:02:50.000
+Providing direct citations to source materials, allowing users to
+verify facts by viewing original document excerpts and page numbers.
+
+19
+00:02:50.000 --> 00:02:55.000
+Executing secure on-premise inference with local CUDA acceleration
+to ensure sensitive corporate data never leaves the infrastructure.
+
+20
+00:02:55.000 --> 00:02:59.000
+Switching to cloud API inference for non-sensitive tasks, achieving
+significantly lower latency with zero local GPU resource consumption.
