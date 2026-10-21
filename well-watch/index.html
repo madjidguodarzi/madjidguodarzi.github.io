@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Under Construction</title>
+		<title>Well-Watch Analytics Platform - Majid Guodarzi</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -16,45 +16,265 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Layouts</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">Under Construction</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
+			<header id="header">
+				<h1 id="logo"><a href="https://github.com/madjidguodarzi/" target="_blank">Majid Guodarzi</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li>
+							<a href="#projects">Featured Projects</a>
+							<ul>
+								<li><a href="/vessel-tracking/" class="scrolly">Vessel Tracking & Data Platform</a></li>
+								<li><a href="/aiot/" class="scrolly">AIOT</a></li>
+								<li><a href="/plan-to-cost/" class="scrolly">HandDrawn to 3D Estimator</a></li>
+								<li><a href="/modelor/" class="scrolly">Modelor 2D Ore Modeling</a></li>
+								<li><a href="/rag/" class="scrolly">Enterprise RAG & Search Engine</a></li>
+								<li><a href="/well-watch/" class="scrolly">Well-Watch Platform</a></li>
+							</ul>
+						</li>
+						<li><a href="https://github.com/madjidguodarzi" target="_blank">GitHub Profile</a></li>
+						<li><a href="mailto:madjid.guodarzi@gmail.com" class="button primary">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
 
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>Under Construction</h2>
-							<p></p>
+							<h2>Well-Watch Analytics Platform</h2>
+							<p>Integrated Data Management System for Drilling Operations, Secure Archiving & Financial Workflow Validation (2015)</p>
 						</header>
 
 						<!-- Content -->
 							<section id="content">
-								<p style="text-align: center;">This page is under construction, and will be available as soon as possible</p>
+								
+								<a href="#" class="image fit"><img src="/images/well-watch-cover.jpg" alt="Well-Watch Dashboard" /></a>
+
+								<h3>The Challenge: From Scattered File Servers to Controlled Knowledge</h3>
+								<p>
+									In drilling operations, Daily Reports, technical documents, invoices, claims and supporting files arrive continuously from multiple rigs. 
+									Traditional approaches rely on Windows File Shares and direct email distribution. This creates recurring problems:
+								</p>
+								<ul>
+									<li>Each rig sends reports directly to final users and must maintain its own recipient lists.</li>
+									<li>Office staff must manually archive and categorize received files.</li>
+									<li>Search is limited to folder browsing with high risk of data loss or unauthorized access.</li>
+									<li>No reliable activity log (who viewed, downloaded or modified a file).</li>
+									<li>Invoice and claim tracking depends heavily on individuals rather than system-enforced processes.</li>
+								</ul>
+								<p>
+									Well-Watch was designed as a central platform that automatically receives, archives, categorizes and distributes operational documents while providing structured search, controlled access and financial workflow enforcement.
+								</p>
+
+								<hr />
+
+								<h3>System Architecture – Modules & Relations</h3>
+								<p>
+									The platform is built around a central <strong>Archive Viewer</strong> that acts as the single storage and integration base for all other modules.
+								</p>
+								<a href="#" class="image fit"><img src="/images/well-watch-modules.png" alt="Well-Watch Modules & Relations" /></a>
+								<ul>
+									<li><strong>Main Module / Dispatcher</strong> – automatic reception and distribution of reports</li>
+									<li><strong>Archive Viewer</strong> – central secure storage and search engine</li>
+									<li><strong>Invoice Tracking</strong> – full lifecycle of contractor invoices</li>
+									<li><strong>Change & Claims</strong> – tracking of contractual changes and claims</li>
+									<li><strong>Personnel Evaluation</strong> – monthly performance evaluation and reporting</li>
+									<li><strong>Internal Messaging</strong> – controlled communication between users</li>
+								</ul>
+								<p>
+									Documents uploaded by users or received automatically are linked to the relevant Well, Contract and Invoice/Claim records, creating a coherent operational knowledge base.
+								</p>
+
+								<hr />
+
+								<h3>Dispatcher: From Manual Email Chaos to Automated Distribution</h3>
+								
+								<h4>Conventional Approach</h4>
+								<ul>
+									<li>Each rig sends reports/emails directly to final users.</li>
+									<li>Recipient lists must be updated manually and frequently.</li>
+									<li>Office staff must archive and categorize all incoming files.</li>
+								</ul>
+
+								<h4>Well-Watch Dispatcher</h4>
+								<ul>
+									<li>Rigs send all reports to a single <strong>“Data-Master”</strong> email center.</li>
+									<li>The system automatically distributes files to the correct final users according to rules defined by the administrator.</li>
+									<li>Archiving and categorization run continuously (24/7) without human intervention.</li>
+								</ul>
+								<p><strong>Result:</strong> Higher accuracy, significantly less manpower, and continuous operation.</p>
+
+								<hr />
+
+								<h3>Four Search Modules</h3>
+								<p>
+									All searches operate against structured metadata (Contractor, Contract, Well, File Type, Report Date) stored in a high-speed relational database.
+								</p>
+								<a href="#" class="image fit"><img src="/images/well-watch-search.png" alt="Four Search Modes" /></a>
+								<ol>
+									<li><strong>Simple Search</strong> – fast lookup by common fields</li>
+									<li><strong>Advanced Search</strong> – complex multi-criteria combinations</li>
+									<li><strong>Direct SQL Search</strong> – power users can execute optimized SQL queries</li>
+									<li><strong>2D Map Search</strong> – click on the field map to locate wells and retrieve related reports geographically</li>
+								</ol>
+
+								<hr />
+
+								<h3>Secure Archiving vs Traditional Windows File Shares</h3>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Aspect</th>
+												<th>Windows File Share</th>
+												<th>Well-Watch</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Access Control</td>
+												<td>Usually 2–3 broad levels defined by IT</td>
+												<td>Pre-determined flexible access matrix per user and role</td>
+											</tr>
+											<tr>
+												<td>File Listing</td>
+												<td>Users can list all files in accessible folders</td>
+												<td>Non-listable storage – files only reachable via unique database addresses</td>
+											</tr>
+											<tr>
+												<td>Deletion</td>
+												<td>Permanent deletion possible</td>
+												<td>Soft delete only – files can be restored from internal recycle bin</td>
+											</tr>
+											<tr>
+												<td>Activity Log</td>
+												<td>No reliable log of read/write/delete</td>
+												<td>Full log of login, view, download, export and delete actions</td>
+											</tr>
+											<tr>
+												<td>Search</td>
+												<td>One-level, slow folder search</td>
+												<td>Four search modes including Direct SQL and 2D Map</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<hr />
+
+								<h3>Core Workflows (Rewritten)</h3>
+
+								<h4>1. Report Reception, Validation & Dispatch</h4>
+								<p>
+									Reports are received from rigs and field offices. The system checks whether the received reports meet the required validation criteria. 
+									If approved, they are automatically archived according to the predefined matrix and distributed to authorized final users (Karun, PPPL, etc.). 
+									If not approved, they are returned for correction or sent to the Tehran office for review.
+								</p>
+
+								<h4>2. Automatic Archiving & Distribution</h4>
+								<p>
+									Once validated, reports are:
+								</p>
+								<ul>
+									<li>Automatically archived based on the organizational matrix (Well / Contract / Report Type)</li>
+									<li>Automatically distributed via email to the correct distribution list defined by the administrator</li>
+								</ul>
+
+								<h4>3. End-of-Well Process & Export</h4>
+								<p>
+									When well operations are completed, the system can generate a comprehensive End-of-Well report package. 
+									Users can request a full export of all related documents. The system packages the files and delivers them via the requested medium (CD/DVD/HDD or network share).
+								</p>
+
+								<h4>4. Access Control Decision</h4>
+								<p>
+									Every request to view or download a report is evaluated against the user’s access matrix. 
+									If the user has the required permission for that Well / Contract / Report Type, access is granted; otherwise the request is denied.
+								</p>
+
+								<hr />
+
+								<h3>Financial & Contractual Modules</h3>
+								
+								<h4>Invoice Tracking</h4>
+								<ul>
+									<li>Upload of invoices, WPAs and all supporting documents</li>
+									<li>Full status tracking: Approved / Ongoing / Rejected</li>
+									<li>Management reporting per project including contract ceiling monitoring</li>
+									<li>Process is independent of individual persons – the system enforces the workflow</li>
+								</ul>
+
+								<h4>Change & Claims</h4>
+								<ul>
+									<li>Upload of all relevant letters, MoMs and supporting files</li>
+									<li>Status tracking: Started / Ongoing / Closed</li>
+									<li>Project-level management reporting and contract overview</li>
+								</ul>
+
+								<hr />
+
+								<h3>Personnel Evaluation</h3>
+								<ul>
+									<li>Monthly performance evaluation of individuals</li>
+									<li>Complete historical record of all evaluations</li>
+									<li>Configurable reporting according to predefined hierarchy</li>
+								</ul>
+
+								<hr />
+
+								<h3>Key Engineering Lessons</h3>
+								<ol>
+									<li><strong>Centralized Dispatch + Automatic Archiving</strong> eliminates manual distribution and categorization effort.</li>
+									<li><strong>Metadata + SQL Search</strong> is far more powerful than folder browsing for industrial document volumes.</li>
+									<li><strong>Non-listable storage + full activity logging</strong> materially improves security and auditability compared with traditional file shares.</li>
+									<li><strong>System-enforced workflows</strong> for invoices and claims remove dependency on individuals and increase compliance.</li>
+									<li><strong>Matrix-based access control</strong> allows precise permission design across roles and domains.</li>
+								</ol>
+
+								<hr />
+
+								<h3>Business Impact</h3>
+								<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Area</th>
+												<th>Impact</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Document Distribution</td>
+												<td>Automated 24/7 dispatch replaces manual email lists and office archiving</td>
+											</tr>
+											<tr>
+												<td>Search & Retrieval</td>
+												<td>High-speed multi-criteria and map-based search across the entire archive</td>
+											</tr>
+											<tr>
+												<td>Security & Audit</td>
+												<td>Non-listable storage + complete activity logs + soft-delete</td>
+											</tr>
+											<tr>
+												<td>Financial Control</td>
+												<td>End-to-end invoice and claim tracking with enforced workflow</td>
+											</tr>
+											<tr>
+												<td>Operational Independence</td>
+												<td>Processes no longer depend on specific individuals</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<hr />
+
+								<p>
+									<em>Note: Due to confidentiality agreements, specific source code, raw data and internal production screenshots are not shared publicly. 
+									Architectural patterns, search capabilities and workflow designs are described above for professional evaluation.</em>
+								</p>
+
 							</section>
 
 					</div>
@@ -63,15 +283,12 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Majid Guodarzi. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 
