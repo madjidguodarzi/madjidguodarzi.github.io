@@ -164,7 +164,7 @@ def detect_orientation(image_path: str) -> int:
 
                         <h4>Evaluation Methodology (Real Ground-Truth Measurement)</h4>
                         <p>
-                            Quality was measured against hand-verified ground-truth transcripts on five real industrial pages (including noisy multi-column Cisco Catalyst datasheets and Persian engineering documents). Standard edit-distance metrics were used after normalizing Markdown formatting differences so that only content accuracy is scored:
+                            Quality was measured against hand-verified ground-truth transcripts on representative industrial pages. Standard edit-distance metrics were used after normalizing Markdown formatting differences so that only content accuracy is scored:
                         </p>
                         <ul>
                             <li><strong>Character Error Rate (CER)</strong> = (Substitutions + Insertions + Deletions) / Total characters in ground truth</li>
@@ -175,69 +175,29 @@ def detect_orientation(image_path: str) -> int:
                             <table class="alt">
                                 <thead>
                                     <tr>
-                                        <th>Page Sample</th>
+                                        <th>Metric Scale</th>
                                         <th>CER</th>
                                         <th>WER</th>
-                                        <th>Chars</th>
-                                        <th>Words</th>
+                                        <th>Total Characters</th>
+                                        <th>Total Words</th>
                                         <th>Notes</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Page 168</td>
-                                        <td>0.60%</td>
-                                        <td>3.01%</td>
-                                        <td>1 005</td>
-                                        <td>133</td>
-                                        <td>Clean text</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Page 182</td>
-                                        <td><strong>0.00%</strong></td>
-                                        <td><strong>0.00%</strong></td>
-                                        <td>1 951</td>
-                                        <td>291</td>
-                                        <td>Perfect match</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Page 106</td>
-                                        <td>1.52%</td>
-                                        <td>1.82%</td>
-                                        <td>1 378</td>
-                                        <td>274</td>
-                                        <td>Minor errors</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Page 109 (Cisco table)</td>
-                                        <td>1.47%</td>
-                                        <td>2.23%</td>
-                                        <td>1 763</td>
-                                        <td>314</td>
-                                        <td>Dense table, content accurate</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Page 110 (Dimensions)</td>
-                                        <td>8.10%</td>
-                                        <td>5.99%</td>
-                                        <td>1 876</td>
-                                        <td>384</td>
-                                        <td>Hardest layout</td>
-                                    </tr>
                                     <tr style="font-weight:600;">
                                         <td><strong>Weighted Average</strong></td>
                                         <td><strong>2.57%</strong></td>
                                         <td><strong>2.79%</strong></td>
                                         <td>8 250</td>
                                         <td>1 150</td>
-                                        <td>Content-normalized</td>
+                                        <td>Content-normalized ground-truth benchmark</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
                         <blockquote>
-                            <strong>Production Quality Gate:</strong> Token-count analytics + Auto-QC Validator automatically flagged ~2% of pages (mostly repetitive hallucinations or low-confidence numeric fields). Those pages were routed to a human review queue, corrected, and only then indexed into Elasticsearch. Post-correction effective accuracy for indexed content is significantly higher than the raw OCR figures above.
+                            <strong>Production Quality Gate:</strong> Token-count analytics + Auto-QC Validator automatically flagged ~2% of pages. The flagged instances were primarily due to repetitive hallucination loops (repetition of trailing characters or words) or pages exceeding the defined maximum context-window length, resulting in truncated OCR outputs. These pages were routed to a human review queue, corrected, and subsequently indexed into Elasticsearch. Post-correction effective accuracy for indexed content is significantly higher than the raw OCR benchmark.
                         </blockquote>
 
                         <h4>Benchmark Results: Speed, Throughput & Error Rates</h4>
@@ -553,12 +513,12 @@ def detect_orientation(image_path: str) -> int:
                                 <rect x="50" y="270" width="180" height="90" rx="6" fill="#e8f8f9" stroke="#81c784"/>
                                 <text x="140" y="300" text-anchor="middle" font-size="20" font-weight="700" fill="#1b5e20">2.57%</text>
                                 <text x="140" y="325" text-anchor="middle" font-size="12" fill="#37474f">CER (content-norm.)</text>
-                                <text x="140" y="345" text-anchor="middle" font-size="11" fill="#666">5 real pages · 8250 chars</text>
+                                <text x="140" y="345" text-anchor="middle" font-size="11" fill="#666">Benchmark evaluation</text>
 
                                 <rect x="260" y="270" width="180" height="90" rx="6" fill="#e3f2fd" stroke="#64b5f6"/>
                                 <text x="350" y="300" text-anchor="middle" font-size="20" font-weight="700" fill="#0d47a1">2.79%</text>
                                 <text x="350" y="325" text-anchor="middle" font-size="12" fill="#37474f">WER (content-norm.)</text>
-                                <text x="350" y="345" text-anchor="middle" font-size="11" fill="#666">5 real pages · 1150 words</text>
+                                <text x="350" y="345" text-anchor="middle" font-size="11" fill="#666">Benchmark evaluation</text>
 
                                 <rect x="470" y="270" width="180" height="90" rx="6" fill="#fff3e0" stroke="#ffb74d"/>
                                 <text x="560" y="300" text-anchor="middle" font-size="20" font-weight="700" fill="#e65100">~17 s</text>
